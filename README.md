@@ -3,18 +3,18 @@ M300 - LB1
 
 Dieses Repository behandelt die Installation eines Multi-VM-Umgebung mit Vagrant und Virtual Box.
 
-### Einleitung
+## Einleitung
 
 Diese Dokumentation wurde von David Malic im Rahmen des Moduls M300 (Plattformübergreifende Dienste in ein Netzwerk integrieren)
 erarbeitet und zeigt alle Schritte auf, die es zur Einrichtung einer vollständig funktionsfähigen Toolumgebung benötigt.
 
 
-### Voraussetzungen
+## Voraussetzungen
 * VirtualBox 
 * Vagrant (
 * Text-Editor (z.B. Visual Studio Code)
 
-### Inhaltsverzeichnis
+## Inhaltsverzeichnis
 * 01 - Vorbereitungen
 * 02 - Box hinzufügen
 * 03 - SSH-Key
@@ -30,7 +30,7 @@ Die Datei erfüllt folgende Zwecke:
 1. Das Vagrantfile legt fest, wo sich das Projekt befindet. Dieses "Root-Directory" ist für viele Konfigurationseinstellungen unabdingbar.
 2. Mit dem Vagrantfile werden Anzahl Maschinen und Ressourcen (inkl. Software) definiert, die für den Betrieb benötigt werden.
 
-### Vagrantfile erstellen
+## Vagrantfile erstellen
 1. Terminal starten
 2. Projektordner erstellen, wo das Projekt liegen soll:
     ```Shell
@@ -66,7 +66,7 @@ Der letzte Befehl lädt die Box herunter und fügt sie Vagrant hinzu. Sobald wir
 03 - SSH-Key
 ======
 
-### SSH-Key erstellen mit Password und hinzufügen des SSH-Agents
+## SSH-Key erstellen mit Password und hinzufügen des SSH-Agents
 ![ssh key](https://user-images.githubusercontent.com/47855918/54729693-3ac17000-4b85-11e9-95b6-e2673ee3df48.png)
 
 SSH-Key wurde erstellt mit dem git-bash. Zusätzlich wurde auch ein Passwort hinterlegt. 
