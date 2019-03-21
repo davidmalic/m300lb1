@@ -150,57 +150,7 @@ Dieser freie Quelltext-Editor von Microsoft, ermöglicht uns, unsere Workflows b
 
 Für die Einrichtung muss man sich nach den nachfolgenden Anweisungen orientieren:
 
-### Software herunteladen & installieren
-***
-1. Unter [dieser Webseite](https://code.visualstudio.com/"visualstudio.com") lässt sich der Installer (Version 1.26.1) herunterladen.
-2. Auf "Download for Mac" klicken und warten, bis das Fenster zum Herunterladen erscheint. Anschliesend den Download des Installers starten
-3. Die Installation erfolgt auch hier GUI-basiert. Wiederum aber standard (ohne speziellen Anpassungen), sodass an dieser Stelle auf eine Erklärung ebenfalls verzichtet wird .
-4. Sobald der Vorgang abgeschlossen wurde, kann mit dem Herunterladen der ISO-Datei und der VM-Erstellung fortgefahren werden.
-
-
-### Extensions installieren
-***
-
-Wir fügen dem Editor drei wichtige Extensions hinzu:
-
-* Markdown All in One (Version 1.6.0 / von Yu Zhang)
-* Vagrant Extension (Version 0.5.0 / von Marco Stanzi)
-* vscode-pdf Extension (Version 0.3.0 / von tomiko1207)
-
-Dazu müssen folgende Anweisungen befolgt werden: 
-
-1. Visual Studio Code öffnen
-2. Die Tastenkombination `CTRL` + `SHIFT` + `X` drücken und in der Sucheleiste die erwähnten Extensions suchen
-3. Auf `Install` klicken und anschliessend auf `Reload`, um die Extension in den Arbeitsbereich zu laden.
-4. Nun können die Extensions angewendet werden. Für Markdown ist [diese Liste](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet/"github.com") sehr hilfreich.
-
-
-### Einstellungen anpassen
-***
-Damit keine Dateien der virtuellen Maschinen dem Cloud-Repository hinzugefügt werden (da Dateien zu gross), müssen diese in den Einstellungen "exkludiert" werden:
-
-1. Visual Studio Code öffnen
-2. Unter `Code` > `Preferences` > `Settings` bei den 3 Punkten (...) auf `Open setting.json` klicken
-3. Zu diesem Abschnitt gehen:
-     ```
-      // Configure glob patterns for excluding files and folders. For example, the files 
-      explorer decides which files and folders to show or hide based on this setting. 
-      Read more about glob patterns here. (...)
-    ``` 
-4. Nachstehenden Code einfügen:
-     ```
-      // Konfiguriert die Globmuster zum Ausschließen von Dateien und Ordnern.
-      "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/.vagrant": true,
-        "**/.DS_Store": true
-      },
-    ```
-5. Änderungen speichern und die Einstellungen schliessen
-   
-Nun sollten keine Dateien mit den Endungen .git / .svn / .hg / .vagrant / .DS_store hochgeladen werden. Wie man die Änderungen innerhalb von Visual Studio Code richtig pusht, wird im nachfolgenden Abschnitt erklärt. 
+ 
 
 ### Repository hinzufügen & pushen
 ***
@@ -248,3 +198,15 @@ Der SSH-Key wurde in Github implementiert.
 ## Repository klonen
 ![rep klonen](https://user-images.githubusercontent.com/47855918/54730216-f4b9db80-4b87-11e9-95c5-fa678e3d3a67.png)
 Die Repository wird von Github auf den Client geklont.
+
+K4
+=====
+
+
+K5
+=====
+
+## Reflexion
+Ich hatte noch nie etwas von Vagrant gehört. Jedoch als es Herr Kälin uns erklärte, fand ich grosses Interesse. Eine VM zu erstellen mit einem Text-File nach seinen Bedürfnissen? Das ist sehr praktisch und zeitsparend. Was mir besonders gefiel war das Erarbeiten der Dokumentation, da ich bis anhin den Funktionsumfang von GitHub in Kombination mit Markdown nicht kannte. Da für mich alles sehr neu war, musste ich mich in einer ersten Phase erst einmal in die einzelnen Bereiche einarbeiten und Schritt für Schritt die Anweisungen befolgen. Grösstenteils hatte ich dabei keine Mühe und ich konnte bereits in geraumer Zeit einen Grossteil der Aufgaben abschliessen. Am Schluss hatte ich ein bisschen Zeitdruck konnte jedoch alles noch gut erledigen. 
+
+Ich konnte vieles lernen und bedanke mich beim Herrn Kälin für seine Unterstützung. In Zukunft werde ich Github auf jeden Fall für nachfolgende Projekte brauchen. 
