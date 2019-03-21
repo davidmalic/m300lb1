@@ -401,6 +401,9 @@ SHELL
 ## Kennt die Vagrant-Befehle
 
 
+![befehle](https://user-images.githubusercontent.com/47855918/54756122-d84d8b80-4be7-11e9-8d4b-ee62e54122f7.jpg)
+
+
 K4
 =====
 
