@@ -426,6 +426,16 @@ sudo chpasswd <<<admin:admin
 sudo chpasswd <<<test:test
 ```
 
+## Zugang mit SSH-Tunnel abgesichert
+
+Kontrolle ob der Zugang abgesichert ist
+
+```bash
+root@dhcp:~# cd /etc/ssh
+root@dhcp:/etc/ssh# sudo nano sshd_config
+root@dhcp:/etc/ssh#
+```
+
 ### DHCP-Server
 ***
 Die DHCP VM hat folgende Spezifikationen (Die Änderungen kann man im Vagrant-File vornehmen):
