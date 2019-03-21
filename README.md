@@ -410,6 +410,34 @@ SHELL
 Unten die wichtigsten Befehle:
 ![befehle](https://user-images.githubusercontent.com/47855918/54756122-d84d8b80-4be7-11e9-8d4b-ee62e54122f7.jpg)
 
+## Eingerichtete Umgebung
+
+
++---------------------------------------------------------------+
+! Notebook - Schulnetz 10.x.x.x und Privates Netz 192.168.6.1   !                 
+! Port: 8080 (192.158.6.101:80)                                 !	
+!                                                               !	
+!    +--------------------+          +---------------------+    !
+!    ! Appache Server     !          ! DHCP Server         !    !       
+!    ! Host: apache       !          ! Host: dhcp          !    !
+!    ! IP: 192.168.6.7    ! <------> ! IP: 192.168.6.130                !    !
+!    ! Port: 80           !          !                     !    !
+!    ! Nat: 8080          !          !                     !    !
+!    +--------------------+          +---------------------+    !
+!                                                               !
+!                                                               !
+!                                                               !
+!                  +---------------------+                      !
+!                  ! FTP Server          !                      !
+!                  ! Host: ftp           !                      !
+!                  ! IP: 192.168.6.6     !                      !
+!                  ! Port 3306           !                      !
+!                  ! Nat: -              !                      !
+!                  +---------------------+                      !                                                           
+!                                                               !
+!	                                                        !
++---------------------------------------------------------------
+
 ## Andere, vorgefertige vm auf eigenem Notebook aufgesetzt
 So habe ich mein Vagrant konfiguriert:
 
