@@ -31,6 +31,12 @@ erarbeitet und zeigt alle Schritte auf, die es braucht um die LB1-Kriterien zu e
   * Wichtige Lernschritte sind dokumentiert
 * K3
 * K4
+  * Firewall eingrichtet inkl. Rules
+  * Reverse-Proxy eingerichet
+  * Benutzer- und Rechtevergabe ist eingerichtet
+  * Zugang mit SSH-Tunnel abgesichert
+  * Sicherheitsmassnahmen sind dokumentiert
+  * Projekt mit Git und Mark Down dokumentiert
 * K5
 
 ___
@@ -394,8 +400,34 @@ SHELL
 
 K4
 =====
-DHCP-Server
--------------
+
+## Firewall eingerichtet inkl. Rules
+Eine lokale Firewall wird installiert und anschliessend auch konfiguriert. Dabei öffnen man den Port 22 um via SSH darauf zuzugreifen. INFO-INPUT SSH Port 22 | TELNET Port 23
+```
+#Local Firewall installieren
+sudo apt-get -y install ufw gufw 
+sudo ufw allow from 10.0.2.2 to any port 22
+sudo ufw --force enable    
+```
+Nun ist die DHCP-Part abgeschlossen. Man kann jetzt Clients VM erstellen und mit dem DHCP-Server innerhalb IP-Range IP-Adresse bekommen.
+
+## Reverse-Proxy eingerichtet
+
+## Benutzer- und Rechtevergabe ist eingerichtet
+Im nächsten Schritt wird eine Gruppe, inklusive Benutzer mit Passwort erstellt. Dies geht folgendermassen: 
+```
+#Gruppe Myadmin erstellen
+sudo groupadd myadmin
+#User erstellen
+sudo useradd admin -g myadmin -m -s /bin/bash
+sudo useradd test -g myadmin -m -s /bin/bash
+#Password festlegen
+sudo chpasswd <<<admin:admin
+sudo chpasswd <<<test:test
+```
+
+### DHCP-Server
+***
 Die DHCP VM hat folgende Spezifikationen (Die Änderungen kann man im Vagrant-File vornehmen):
 * IP: 192.168.6.5
 * Hostname: dhcp
@@ -416,22 +448,12 @@ Der erstes Schritt ist die Paketverzeichnis aktualisiert wird.
 ```
 sudo apt-get update
 ```
-Im nächsten Schritt wird eine Gruppe mit inklusvie Benutzer mit Passwort erstellt. Es sieht so aus: 
-```
-#Gruppe Myadmin erstellen
-sudo groupadd myadmin
-#User erstellen
-sudo useradd admin -g myadmin -m -s /bin/bash
-sudo useradd test -g myadmin -m -s /bin/bash
-#Password festlegen
-sudo chpasswd <<<admin:admin
-sudo chpasswd <<<test:test
-```
+
 Bei nächsten Schritt wird der DHCP Server installiert. Das Paket lautet: ISC-DHCP-SERVER.
 ```
 sudo apt-get -y install isc-dhcp-server
 ```
-Nach der Installation von DHCp-Server muss man die Konfiguration anpassen. Das Konfigurationfile vom DHCP Server befindet sich im Pfad /etc/dhcp/dhcpd.conf. Bei dem Konfigurationfile wird folgendes geändert:
+Nach der Installation von DHCP-Server muss man die Konfiguration anpassen. Das Konfigurationfile vom DHCP Server befindet sich im Pfad /etc/dhcp/dhcpd.conf. Bei dem Konfigurationfile wird folgendes geändert:
 * Domainname
 * DNS
 * DHCP Scope
@@ -471,14 +493,7 @@ Die Tastaturlayout muss man noch auf Deutsch Schweiz anpassen.
 #Tastaturlayout anpassen
 sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="ch"/g' /etc/default/locale
 ```
-Am Ende wird noch eine lokale Firewall installiert und anschliessend auch konfiguriert. Dabei öffnen man den Port 22 um via SSH darauf zuzugreifen. INFO-INPUT SSH Port 22 | TELNET Port 23
-```
-#Local Firewall installieren
-sudo apt-get -y install ufw gufw 
-sudo ufw allow from 10.0.2.2 to any port 22
-sudo ufw --force enable    
-```
-Nun ist die DHCP-Part abgeschlossen. Man kann jetzt Clients VM erstellen und mit dem DHCP-Server innerhalb IP-Range IP-Adresse bekommen.
+
 
 FTP-Server
 ----------
@@ -581,14 +596,7 @@ Die Tastaturlayout muss man noch auf Deutsch Schweiz anpassen.
 #Tastaturlayout anpassen
 sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="ch"/g' /etc/default/locale
 ```
-Am Ende wird noch eine lokale Firewall installiert und anschliessend auch konfiguriert. Dabei öffnen man den Port 22 um via SSH darauf zuzugreifen. INFO-INPUT SSH Port 22 | TELNET Port 23
-```
-#Local Firewall installieren
-sudo apt-get -y install ufw gufw 
-sudo ufw allow from 10.0.2.2 to any port 22
-sudo ufw --force enable    
-```
-Nun ist auch die Apache-Part abgeschlossen.
+
 
 K5
 =====
