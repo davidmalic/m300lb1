@@ -17,6 +17,11 @@ erarbeitet und zeigt alle Schritte auf, die es braucht um die LB1-Kriterien zu e
 
 ## Inhaltsverzeichnis
 * K1
+** Virtual Box
+** Vagrant
+** Visual Studio Code
+** Git-Client
+** SSH-Key für Client erstellt
 * K2
 * K3
 * K4
@@ -162,27 +167,64 @@ Für die Einrichtung muss man sich nach den nachfolgenden Anweisungen orientiere
 6. Bei den 3 Punkten (...) die Funktion **Push** aufrufen
 7. Warten, bis Dateien vollständig gepusht wurden
 
-K2
-======
+## Git-Client
+### Account erstellen
+Als erster Schritt muss ein GitHub-Account eingerichtet werden. Dieser dient uns später als "Cloud-Speicher" unserer Dokumentation und weiteren Dateien.
 
-Als nächstes benötigen wir eine Vagrant Box, die uns eine Art "System-Image" (Abbild) liefert, auf welchem wir unsere eigene Konfiguration mit den Services aufbauen können.
+Folgende Arbeiten müssen gemacht werden:
 
-Unter https://app.vagrantup.com/boxes/search findet man alle öffentlich verfügbaren Boxen, die frei verwendbar sind. In unserem Fall nutzen wir die `bento/ubuntu-16.04` Box, die [hier](https://app.vagrantup.com/bento/boxes/ubuntu-16.04) näher beschrieben ist.
 
-Vagrant Boxen lassen sich nicht einfach so per Maus-Klick herunterladen. Sie werden direkt im Terminal dem lokalen "Repository" hinzugefügt. Dazu müssen folgende Schritte durchgeführt werden:
+***
+1. Auf www.github.com ein Benutzerkonto erstellen (Angabe von Username, E-Mail und Passwort)
+2. E-Mail zur Verifizierung des Kontos bestätigen und anschliessend auf GitHub anmelden
 
-1. Terminal starten
-2. Vagrant Box hinzufügen:
+
+### Repository erstellen
+***
+1. Anmelden unter www.github.com 
+2. Innerhalb der Willkommens-Seite auf <strong>Start a project</strong> klicken
+3. Unter <strong>Repository name</strong> einen Name definieren (z.B. M300)
+4. Optional: kurze Beschreibung eingeben
+5. Radio-Button bei <strong>Public</strong> belassen
+6. Haken bei <strong>Initialize this repository with a README</strong> setzen
+7. Auf <strong>Create repository</strong> klicken
+   
+
+### SSH-Key erstellen (lokal)
+***
+1.  Terminal öffnen
+2.  Folgenden Befehl mit der Account-E-Mail von GitHub einfügen:
     ```Shell
-      $  vagrant box add bento/ubuntu-16.04
+      $  ssh-keygen -t rsa -b 4096 -C "beispiel@beispiel.com"
+    ```
+3. Neuer SSH-Key wird erstellt:
+    ```Shell
+      Generating public/private rsa key pair.
+    ```
+4. Bei der Abfrage, unter welchem Namen der Schlüssel gespeichert werden soll, die Enter-Taste drücken (für Standard):
+    ```Shell
+      Enter a file in which to save the key (~/.ssh/id_rsa): [Press enter]
+    ```
+5. Nun kann ein Passwort für den Key festgelegt werden. Ich empfehle dieses zu setzen und anschliessend dem SSH-Agent zu hinterlegen, sodass keine erneute Eingabe (z.B. beim Pushen) notwendig ist:
+    ```Shell
+      Enter passphrase (empty for no passphrase): [Passwort]
+      Enter same passphrase again: [Passwort wiederholen]
     ```
 
-Der letzte Befehl lädt die Box herunter und fügt sie Vagrant hinzu. Sobald wir nun im Vagrantfile diese Box mitgeben, wird die Anwendung eine VM mit diesem "Image" verwendet. 
- 
-> Falls die Box noch nicht mit den Befehl `vagrant box add` hinzugefügt wurde, ist dies nicht weiter schlimm. Vagrant sucht automatisch im [Katalog](https://app.vagrantup.com/boxes/search) nach der entsprechenden Box.
 
-K3
-======
+
+
+### SSH-Key hinzufügen
+***
+1.  Anmelden unter www.github.com
+2.  Auf Benutzerkonto klicken (oben rechts) und den Punkt <strong>Settings</strong> aufrufen
+3.  Unter den Menübereichen auf der linken Seite zum Abschnitt <strong>SSH und GPG keys</strong> wechseln
+4.  Auf <strong>New SSH key</strong> klicken
+5.  Im Formular unter <strong>Title</strong> eine Bezeichnung vergeben (z.B. MB SSH-Key)
+6.  Den zuvor kopierten Key mit <i>CTRL + V</i> einfügen und auf <strong>Add SSH key</strong> klicken
+7.  Der Schlüssel (SSH-Key) sollte nun in der übergeordneten Liste auftauchen
+
+
 
 ## SSH-Key erstellen mit Password und hinzufügen des SSH-Agents
 ![ssh key](https://user-images.githubusercontent.com/47855918/54729693-3ac17000-4b85-11e9-95b6-e2673ee3df48.png)
