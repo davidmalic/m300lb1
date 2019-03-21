@@ -1,4 +1,4 @@
-M300 - Vagrant Box
+M300 - LB1
 ======
 
 Dieses Repository behandelt die Installation eines Multi-VM-Umgebung mit Vagrant und Virtual Box.
@@ -17,11 +17,7 @@ erarbeitet und zeigt alle Schritte auf, die es zur Einrichtung einer vollständi
 #### Inhaltsverzeichnis
 * 01 - Vorbereitungen
 * 02 - Box hinzufügen
-* 03 - VMs konfigurieren
-* 04 - Provisionierung
-* 05 - Ordner-Synchronisation
-* 06 - Port-Weiterleitunng
-* 07 - Quellenverzeichnis
+* 03 - SSH-Key
 
 ___
 
@@ -67,123 +63,9 @@ Der letzte Befehl lädt die Box herunter und fügt sie Vagrant hinzu. Sobald wir
  
 > Falls die Box noch nicht mit den Befehl `vagrant box add` hinzugefügt wurde, ist dies nicht weiter schlimm. Vagrant sucht automatisch im [Katalog](https://app.vagrantup.com/boxes/search) nach der entsprechenden Box.
 
-03 - VMs konfigurieren
+03 - SSH-Key
 ======
 
-
-
-Die VM könnte nun fast ohne weitere Probleme gestartet werden. Jedoch müssen wir im Vagrantfile noch angeben, welche hinzugefügte Box verwendet werden soll. Dazu müssen folgende Schritte umgesetzt werden:
-
-1. Terminal öffnen
-2. In das Projekt-Verzeichnis wechseln
-3. Das Vagrantfile mit einem **GUI-Editor** öffnen (z.B. Visual Studio Code)
-4. Folgenden Inhalt einfügen:
-    ```Ruby
-      Vagrant.configure("2") do |config|
-
-        config.vm.provision :shell, inline: "echo A"
-
-            config.vm.define :apache do |web|
-            web.vm.box = "bento/ubuntu-16.04"
-            web.vm.provision :shell, path: "bootstrap.sh"
-            web.vm.network :forwarded_port, guest: 80, host: 4567
-            end
-            
-            config.vm.define :database do |db|
-            db.vm.box = "bento/ubuntu-16.04"
-            end
-        end
-    ```
-
-Dies ist eine ganz schöne Menge an Code. Aber keine Sorge, der Code ist leicht zu verstehen! 
-
-`Vagrant.configure("2") do |config|` <br>
-Ist der Header des Vagrantfiles. Er legt die grundsätzliche Konfiguration fest und ist über die Variable **config** ansprechbar.
-
-`config.vm.provision :shell, inline: "echo A"` <br>
-Dient uns lediglich zum Verständnis. Bei der anschliessenden Erstellung der VM wird im Output der Konsole nämlich "A" ausgegeben.
-
-`config.vm.define :apache do |web|` <br>
-Definiert die erste Virtuelle Maschine (VM), die **apache** heisst und über die Variable **web** anzusprechen ist.
-
-`web.vm.(...)` <br>
-Hier wird die VM konfiguriert. So wird beispielsweise mit **web.vm.box = ""bento/ubuntu-16.04"** definiert, welche Vagrant Box verwendet werden soll.
-
-`config.vm.define :database do |db|` <br>
-Dieser Code-Abschnitt definiert die zweite VM und ist im Prinzip gleich wie die Defintion der 1. VM.
-
-
-Jetzt aber weiter mit dem Start! Denn auf alle anderen Punkte wird in den nachfolgenden Abschnitten genauer eingegangen.
-
-
-04 - Provisionierung
-======
-
-
-
-Soweit ist alles start-bereit und die beiden VMs könnten gestartet werden. In der Config ist uns aber folgender Punkt bei der Konfiguration der Web-VM (apache) aufgefallen:
-```Ruby
-    web.vm.provision :shell, path: "bootstrap.sh"
-```
-
-Diese Konfiguration zeigt auf ein Skript (**bootstrap.sh**), dass in der Shell ausgeführt werden soll. Genau hier kommt die Provisionierung ins Spiel. Den das bootstrap.sh Script macht nichts anderes, als den Apache-Webserver zu installieren und eine kleine Ordnerumleitung einzurichten. Wie das geht, erfährst du nachfolgend. 
-
-1. Terminal öffnen
-2. In das Projekt-Verzeichnis wechseln
-3. Mit Text-Editor die Datei `bootstrap.sh` erstellen und folgenden Inhalt einfügen:
-```Shell
-    #!/usr/bin/env bash
-
-    apt-get update
-    apt-get install -y apache2
-
-    if ! [ -L /var/www ]; then
-    rm -rf /var/www
-    ln -fs /vagrant /var/www
-    fi
-```
-4. Das Script bzw. die Datei speichern & schliessen
-
-Nun haben wir alle Vorbereitungen getroffen und das Environment bzw. die VMs können gestartet werden:
-
-1. Bei geöffnetem Terminal die VM Provisionierung starten:
-```Shell
-    $ vagrant up
-```
-2. Nach erfolgreichem Start mit SSH auf eine der beiden VMs verbinden:
-```Shell
-    $ vagrant ssh [apache|databse]
-```
-3. In der VM können nun bei bedarf weitere Konfigurationen vorgenommen werden. Nun aber mit `CTRL + D` die Verbindung wieder schliessen.
-   
-<br>
-Ob der Webserver mit Apache auch wirklich läuft, werden wir jetzt prüfen. Dazu müssen folgende Schritte gemacht werden:
-1.  Im Projekt-Verzeichnis einen Ordner mit dem Namen "html" erstellen
-2.  In diesem Ordner eine HTML-Datei ablegen (oder direkt von https://html5up.net/ eine kleine Vorlage holen)
-3.  Folgende Adresse aufrufen: http://127.0.0.1:4567 und das Ergebnis betrachten
-
-Nun ist soweit alles eingerichtet. Aber aufgepasst: In den zwei letzten Abschnitten werden die beiden letzten Geheimnisse um die Konfiguration gelüftet!
-
-05 - Ordner-Synchronisation
-======
-
-
-Interessant zu sehen war, dass wir die HTML-Dateien für die Webseite lokal in unserem Projektordner abgelegt haben. Doch wie konnte VM auf diese Daten zugreifen? Lösung: **Ordner-Synchronisation**
-
-Vagrant richtet voll-automatisch einen Shared-Folder ein, welcher über den Projektordner aufgerufen werden kann. 
-
-Im `bootstrap.sh` Script haben wir zudem auf VM-Ebene eine Umleitung zu `/vagrant` gemacht. `/vagrant` entspricht dabei dem Projektordner selbst. Das heisst, dass alle Dateien, die lokal in diesem Ordner abgelegt werden, in der VM unter `/vagrant` erscheinen. Also auch das Script und die HTML-Dateien. 
-
-Auf `/vagrant` kann man direkt zugreifen, sobald man sich per SSH verbindet. Ausgangsverzeichnis ist dabei `/home/vagrant` und mit `cd /vagrant` wechselt man anschliessend in das Shared-Folder Verzeichnis.
-
-
-06 - Port-Weiterleitunng
-======
-
-
-Das letzte Geheminis ist die Portweiterleitung. 
-
-Als wir die Webseite mit http://127.0.0.1:4567 aufgerufen haben, kam ein anderer Port zum Einsatz, als der Standard-Port 80 für HTTP-Webseiten. 
-Der Grund dafür liegt im Vagrantfile. Dort haben wir beim Apache-Webserver die Zeile `web.vm.network :forwarded_port, guest: 80, host: 4567` eingetragen. Die Zeile richtet eine sogenannte Port-Weiterleitung ein. Das heisst, alle Anfragen auf Port 4567 an die VM werden auf den Port 80 umgeleitet. Dies ist vor allem dann nützlich, wenn Sicherheitsaspekte bei der Entwicklung von Web-Applikationen berücksichtigt werden müssen.
-
+<p><img src="https://onedrive.live.com/view.aspx?resid=492F7CD056F0D2BB%216068&id=documents&wd=target%28m300.one%7CB3045686-7C3C-4C06-981F-9802D0AC178B%2Fad%7CB4C078A5-06F6-421A-8536-F312CA26A2FF%2F%29
+onenote:https://d.docs.live.net/492f7cd056f0d2bb/Dokumente/Notizbuch%20von%20David/m300.one#ad&section-id={B3045686-7C3C-4C06-981F-9802D0AC178B}&page-id={B4C078A5-06F6-421A-8536-F312CA26A2FF}&object-id={2C215ADB-3EB0-4F15-9AB9-D69EC621A5A3}&13"
   
