@@ -5,23 +5,35 @@ Dieses Repository behandelt die Installation eines Multi-VM-Umgebung mit Vagrant
 
 #### Einleitung
 
-Diese Dokumentation wurde im Rahmen des Moduls M300 (Plattformübergreifende Dienste in ein Netzwerk integrieren)
+Die nachstehende Dokumentation wurde von David Malic im Rahmen des Moduls M300 (Plattformübergreifende Dienste in ein Netzwerk integrieren)
 erarbeitet und zeigt alle Schritte auf, die es zur Einrichtung einer vollständig funktionsfähigen Toolumgebung benötigt.
 
+> Wichtig: <br>
+> Für die Durchführung der nachfolgenden Aufgaben, muss zuerst die Dokumentation M300_Toolumgebung konsultiert worden sein. Diese liefert uns die Grundlage für die Erstellung von virtuellen Maschinen.
+
+
+#### Revision History
+
+| Datum         | Änderungen                                                                         |  Kürzel  |
+| ------------- |:-----------------------------------------------------------------------------------| :------: |
+| 25.09.2018    | Dokumentation erstellt & hochgeladen                                               |    MBL   |
+| 30.10.2018    | Grafiken eingefügt, kleine Verbesserungen gemacht                                  |    MBL   |
+|      ...      | ...                                                                                |    ...   |
 
 #### Voraussetzungen
-* [X] VirtualBox 
-* [X] Vagrant (
+* [X] macOS High Sierra (Version 10.13.6)
+* [X] VirtualBox (Version 5.2.18)
+* [X] Vagrant (Version 2.1.4)
 * [X] Text-Editor (z.B. Visual Studio Code)
 
 #### Inhaltsverzeichnis
-* 01 - [Vorbereitungen]
-* 02 - [Box hinzufügen]
-* 03 - [VMs konfigurieren]
-* 04 - [Provisionierung]
-* 05 - [Ordner-Synchronisation]
-* 06 - [Port-Weiterleitunng]
-* 07 - [Quellenverzeichnis]
+* 01 - [Vorbereitungen](https://github.com/TacoNaco47/M300_Vagrant_Box#-01---vorbereitungen)
+* 02 - [Box hinzufügen](https://github.com/TacoNaco47/M300_Vagrant_Box#-02---box-hinzuf%C3%BCgen)
+* 03 - [VMs konfigurieren](https://github.com/TacoNaco47/M300_Vagrant_Box#-03---vms-konfigurieren)
+* 04 - [Provisionierung](https://github.com/TacoNaco47/M300_Vagrant_Box#-04---provisionierung)
+* 05 - [Ordner-Synchronisation](https://github.com/TacoNaco47/M300_Vagrant_Box#-05---ordner-synchronisation)
+* 06 - [Port-Weiterleitunng](https://github.com/TacoNaco47/M300_Vagrant_Box#-06---port-weiterleitunng)
+* 07 - [Quellenverzeichnis](https://github.com/TacoNaco47/M300_Vagrant_Box#-07---quellenverzeichnis)
 
 ___
 
