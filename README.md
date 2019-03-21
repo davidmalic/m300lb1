@@ -4,7 +4,6 @@ M300 - LB1
 Diese Repository behandelt die Umsetzung von der LB1.
 
 ## Einleitung
-
 Diese Dokumentation wurde von David Malic im Rahmen des Moduls M300 (Plattformübergreifende Dienste in ein Netzwerk integrieren)
 erarbeitet und zeigt alle Schritte auf, die es braucht um die LB1-Kriterien zu erfüllen.
 
@@ -28,7 +27,7 @@ K1
 ======
 
 ## Virtualbox
-***
+
 Nun widmen wir uns der Virtualisierung von Computersystemen. Für den Betrieb von solchen Maschinen bzw. Computern stehen zahlreiche Virtualisierungsanwendungen zur Verfügung. Eine davon ist VirtualBox. In diesem Kapitel richten wir eine einfache VM (Virtuelle Maschine) mit VirtualBox ein. Also ganz traditionell und wie sich im späteren Verlauf zeigt, auch eine sehr aufwendige Arbeit.
 
 Folgende Arbeiten müssen gemacht werden:
@@ -72,7 +71,7 @@ Für das weitere Vorgehen wird eine System-Abbild-Datei benötigt. Dazu laden wi
 
 
 ## Vagrant
-***
+
 Vagrant sollte uns zeigen, dass das Bereitstellen virtueller Systeme in der konventionellen Art lange dauert und umständlich sein kann.
 Abhilfe bietet hier Vagrant. Vagrant ist eine freie Ruby-Anwendung zur Erstellung und Verwaltung virtueller Maschinen und ermöglicht einfache Softwareverteilung.
 
@@ -146,7 +145,7 @@ Schlussfolgerung: Eine VM lässt sich mit Vagrant eindeutig schneller und unkomp
 Schlussfolgerung: Keine erheblichen Unterschiede zum ersten Teil (ohne Share) und daher auch nicht wirklich kompliziert.
 
 ## Visual Studio Code
-***
+
 Bis hierhin haben wir soweit alles aufgesetzt und installiert. Nun möchten wir für effizienteres Arbeiten eine "Entwicklungsumgebung" aufbauen, die es uns ermöglicht, alle lokalen Repositories an einem Ort zu verwalten und die dazugehörigen Dateien zu bearbeiten. Die Lösung hierzu ist: Visual Studio Code 
 Dieser freie Quelltext-Editor von Microsoft, ermöglicht uns, unsere Workflows besser zu gestalten und damit die Arbeit um einiges leichter zu machen.
 
@@ -162,7 +161,7 @@ Ich habe jedoch nicht mit Visual Studio Code gearbeitet. Ich habe es direkt im G
 
 
 ## Git-Client
-***
+
 ### Account erstellen
 ***
 Als erster Schritt muss ein GitHub-Account eingerichtet werden. Dieser dient uns später als "Cloud-Speicher" unserer Dokumentation und weiteren Dateien.
@@ -176,7 +175,7 @@ Folgende Arbeiten müssen gemacht werden:
 
 
 ### Repository erstellen
-***
+
 1. Anmelden unter www.github.com 
 2. Innerhalb der Willkommens-Seite auf <strong>Start a project</strong> klicken
 3. Unter <strong>Repository name</strong> einen Name definieren (z.B. M300)
@@ -186,8 +185,7 @@ Folgende Arbeiten müssen gemacht werden:
 7. Auf <strong>Create repository</strong> klicken
    
 
-### SSH-Key erstellen (lokal)
-***
+## SSH-Key für Client erstellt
 
 ![ssh key](https://user-images.githubusercontent.com/47855918/54729693-3ac17000-4b85-11e9-95b6-e2673ee3df48.png)
 SSH-Key wurde erstellt mit dem git-bash. Zusätzlich wurde auch ein Passwort hinterlegt. 
