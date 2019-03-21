@@ -11,18 +11,61 @@ erarbeitet und zeigt alle Schritte auf, die es zur Einrichtung einer vollständi
 
 ## Voraussetzungen
 * VirtualBox 
-* Vagrant (
+* Vagrant
 * Text-Editor (z.B. Visual Studio Code)
-
+* Github Account
 ## Inhaltsverzeichnis
-* 01 - Vorbereitungen
-* 02 - Box hinzufügen
-* 03 - SSH-Key
+* K1
+* K2
+* K3
 
 ___
 
-01 - Vorbereitungen
+K1
 ======
+
+## Virtualbox
+Nun widmen wir uns der Virtualisierung von Computersystemen. Für den Betrieb von solchen Maschinen bzw. Computern stehen zahlreiche Virtualisierungsanwendungen zur Verfügung. Eine davon ist VirtualBox. In diesem Kapitel richten wir eine einfache VM (Virtuelle Maschine) mit VirtualBox ein. Also ganz traditionell und wie sich im späteren Verlauf zeigt, auch eine sehr aufwendige Arbeit.
+
+Folgende Arbeiten müssen gemacht werden:
+
+### Software herunterladen & installieren
+***
+1. Zuerst muss die VirtualBox-Anwendung installiert werden. Der Installer lässt sich [hier](https://www.virtualbox.org"virtualbox.org") herunterladen.
+2. Auf "Download VirtualBox 5.2" klicken und bei Abschnitt "VirtualBox 5.2.19 platform packages" dem OS X hosts Link folgen (Datei wird heruntergeladen)
+3. Die Installation erfolgt GUI-basiert, jedoch standard (ohne speziellen Anpassungen). Daher wird an dieser Stelle auf eine Erklärung verzichtet.
+4. Sobald der Vorgang abgeschlossen wurde, kann mit dem Herunterladen der ISO-Datei und der VM-Erstellung fortgefahren werden.
+
+### ISO-Datei herunterladen
+***
+Für das weitere Vorgehen wird eine System-Abbild-Datei benötigt. Dazu laden wir in unserem Fall das Image von Ubuntu Desktop 16.04.05 herunter. Wie das genau funktioniert, wird nachfolgend beschrieben:
+
+1. Das Systemabbild (ISO-Image) über [diesen Link](http://releases.ubuntu.com/16.04/ubuntu-16.04.5-desktop-amd64.iso.torrent"ubuntu.com") herunterladen
+2. Datei im gewünschten Verzeichnis ablegen (damit das Image wiederverwendet werden kann)
+3. Allen Anweisung in Abschnitt "VM erstellen" folgen
+
+### VM erstellen
+***
+1. VirtualBox starten
+2. Links oben, innerhalb der Anwendung, auf `Neu` klicken
+3. Im neuen Fenster folgende Informationen eintragen:
+   *  Name:           `M300_Ubuntu_16.04_Desktop`
+   *  Typ:            `Linux`
+   *  Version:        `Ubuntu (64-bit)`
+   *  Speichergrösse: `2048 MB`
+   *  Platte:         `[X] Festplatte erzeugen`
+4. Auf `Erzeugen` klicken
+5. Weiteres Fenster öffnet sich, folgende Informationen eintragen:
+   *  Dateipfad:                       standard
+   *  Dateigrösse:                     `10.00 GB`
+   *  Dateityp der Festplatte:         `VMDK (Virtual Maschine Disk)`
+   *  Storage on physical hard disk:   `dynamisch alloziert`
+6. Ebenefalls auf `Erzeugen` klicken, dann im Hauptmenü die VM anwählen (blau markiert) und den Punkt `Ändern` aufrufen
+7. Im Abschnitt `Massenspeicher` den SATA-Controller anwählen und auf das CD+Symbol klicken
+8. Unter `Medium auswählen` das zuvor heruntergeladene Systemabbild (ISO-Datei) anwählen
+9. Alle Änderungen speichern und die VM starten
+10. Den Installationsanweisungen der OS-Installation folgen und anschliessend zu Abschnitt "VM einrichten" gehen
+
 
 Für die Erstellung einer Multi-Maschinen-Umgebung mit Vagrant muss zuallererst das sogenannte Vagrantfile erstellt werden. Dies ist eine Datei, welche alle notwendigen Konfigurationselemente beherrbergt, die zur Erstellung der einzelnen VMs benötigt werden.
 
