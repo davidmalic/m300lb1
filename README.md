@@ -238,8 +238,6 @@ Ausserdem wurde es dem SSH-Agent hinzugefügt
 
 
 
-
-
 ### SSH-Key hinzufügen
 ***
 1.  Anmelden unter www.github.com
@@ -407,12 +405,13 @@ SHELL
 
 ## Kennt die Vagrant-Befehle
 
-Unten die wichtigsten Befehle:
+Die wichtigsten Befehle:
+
 ![befehle](https://user-images.githubusercontent.com/47855918/54756122-d84d8b80-4be7-11e9-8d4b-ee62e54122f7.jpg)
 
 ## Eingerichtete Umgebung
 
-
+```
 +---------------------------------------------------------------+
 ! Notebook - Schulnetz 10.x.x.x und Privates Netz 192.168.6.1   !                 
 ! Port: 8080 (192.158.6.101:80)                                 !	
@@ -437,6 +436,7 @@ Unten die wichtigsten Befehle:
 !                                                               !
 !	                                                        !
 +---------------------------------------------------------------
+```
 
 ## Andere, vorgefertige vm auf eigenem Notebook aufgesetzt
 So habe ich mein Vagrant konfiguriert:
