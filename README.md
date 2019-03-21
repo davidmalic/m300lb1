@@ -68,10 +68,11 @@ Der letzte Befehl lädt die Box herunter und fügt sie Vagrant hinzu. Sobald wir
 
 ## SSH-Key erstellen mit Password und hinzufügen des SSH-Agents
 ![ssh key](https://user-images.githubusercontent.com/47855918/54729693-3ac17000-4b85-11e9-95b6-e2673ee3df48.png)
-
 SSH-Key wurde erstellt mit dem git-bash. Zusätzlich wurde auch ein Passwort hinterlegt. 
 Ausserdem wurde es dem SSH-Agent hinzugefügt
 
-### SSH-Key in Github hinzufügen
+## SSH-Key in Github hinzufügen
 ![add key](https://user-images.githubusercontent.com/47855918/54729765-a277bb00-4b85-11e9-958d-9c5b299893ea.png)
 Der SSH-Key wurde in Github implementiert.
+
+
