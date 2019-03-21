@@ -5,30 +5,28 @@ Dieses Repository behandelt die Installation eines Multi-VM-Umgebung mit Vagrant
 
 #### Einleitung
 
-Diese Dokumentation wurde im Rahmen des Moduls M300 (Plattformübergreifende Dienste in ein Netzwerk integrieren)
+Diese Dokumentation wurde von David Malic im Rahmen des Moduls M300 (Plattformübergreifende Dienste in ein Netzwerk integrieren)
 erarbeitet und zeigt alle Schritte auf, die es zur Einrichtung einer vollständig funktionsfähigen Toolumgebung benötigt.
 
 
 #### Voraussetzungen
-* [X] VirtualBox 
-* [X] Vagrant (
-* [X] Text-Editor (z.B. Visual Studio Code)
+* VirtualBox 
+* Vagrant (
+* Text-Editor (z.B. Visual Studio Code)
 
 #### Inhaltsverzeichnis
-* 01 - [Vorbereitungen]
-* 02 - [Box hinzufügen]
-* 03 - [VMs konfigurieren]
-* 04 - [Provisionierung]
-* 05 - [Ordner-Synchronisation]
-* 06 - [Port-Weiterleitunng]
-* 07 - [Quellenverzeichnis]
+* 01 - Vorbereitungen
+* 02 - Box hinzufügen
+* 03 - VMs konfigurieren
+* 04 - Provisionierung
+* 05 - Ordner-Synchronisation
+* 06 - Port-Weiterleitunng
+* 07 - Quellenverzeichnis
 
 ___
 
-![](https://github.com/TacoNaco47/M300_Vagrant_Box/blob/master/images/Preparations_36x36.png?raw=true "Vorbereitungen") 01 - Vorbereitungen
+01 - Vorbereitungen
 ======
-
-> [⇧ **Nach oben**](https://github.com/TacoNaco47/M300_Vagrant_Box#m300---vagrant-box)
 
 Für die Erstellung einer Multi-Maschinen-Umgebung mit Vagrant muss zuallererst das sogenannte Vagrantfile erstellt werden. Dies ist eine Datei, welche alle notwendigen Konfigurationselemente beherrbergt, die zur Erstellung der einzelnen VMs benötigt werden.
 
@@ -50,11 +48,8 @@ Die Datei erfüllt folgende Zwecke:
 
 Mit dem letzten Befehl wird das Vagrantfile im aktuellen Verzeichnis `MeinVagrantProjekt` erstellt. 
 
-
-![](https://github.com/TacoNaco47/M300_Vagrant_Box/blob/master/images/Add_Box_36x36.png?raw=true "Box hinzufügen") 02 - Box hinzufügen
+02 - Box hinzufügen
 ======
-
-> [⇧ **Nach oben**](https://github.com/TacoNaco47/M300_Vagrant_Box#m300---vagrant-box)
 
 Als nächstes benötigen wir eine Vagrant Box, die uns eine Art "System-Image" (Abbild) liefert, auf welchem wir unsere eigene Konfiguration mit den Services aufbauen können.
 
@@ -69,15 +64,13 @@ Vagrant Boxen lassen sich nicht einfach so per Maus-Klick herunterladen. Sie wer
     ```
 
 Der letzte Befehl lädt die Box herunter und fügt sie Vagrant hinzu. Sobald wir nun im Vagrantfile diese Box mitgeben, wird die Anwendung eine VM mit diesem "Image" verwendet. 
-
-> Wichtig: <br> 
+ 
 > Falls die Box noch nicht mit den Befehl `vagrant box add` hinzugefügt wurde, ist dies nicht weiter schlimm. Vagrant sucht automatisch im [Katalog](https://app.vagrantup.com/boxes/search) nach der entsprechenden Box.
 
-
-![](https://github.com/TacoNaco47/M300_Vagrant_Box/blob/master/images/VM_Config_36x36.png?raw=true "VMs konfigurieren") 03 - VMs konfigurieren
+03 - VMs konfigurieren
 ======
 
-> [⇧ **Nach oben**](https://github.com/TacoNaco47/M300_Vagrant_Box#m300---vagrant-box)
+
 
 Die VM könnte nun fast ohne weitere Probleme gestartet werden. Jedoch müssen wir im Vagrantfile noch angeben, welche hinzugefügte Box verwendet werden soll. Dazu müssen folgende Schritte umgesetzt werden:
 
@@ -123,10 +116,10 @@ Dieser Code-Abschnitt definiert die zweite VM und ist im Prinzip gleich wie die 
 Jetzt aber weiter mit dem Start! Denn auf alle anderen Punkte wird in den nachfolgenden Abschnitten genauer eingegangen.
 
 
-![](https://github.com/TacoNaco47/M300_Vagrant_Box/blob/master/images/Software-Konfiguration_36x36.png?raw=true "Provisionierung") 04 - Provisionierung
+04 - Provisionierung
 ======
 
-> [⇧ **Nach oben**](https://github.com/TacoNaco47/M300_Vagrant_Box#m300---vagrant-box)
+
 
 Soweit ist alles start-bereit und die beiden VMs könnten gestartet werden. In der Config ist uns aber folgender Punkt bei der Konfiguration der Web-VM (apache) aufgefallen:
 ```Ruby
@@ -171,10 +164,9 @@ Ob der Webserver mit Apache auch wirklich läuft, werden wir jetzt prüfen. Dazu
 
 Nun ist soweit alles eingerichtet. Aber aufgepasst: In den zwei letzten Abschnitten werden die beiden letzten Geheimnisse um die Konfiguration gelüftet!
 
-![](https://github.com/TacoNaco47/M300_Vagrant_Box/blob/master/images/Reflexion_36x36.png?raw=true "Ordner-Synchronisation") 05 - Ordner-Synchronisation
+05 - Ordner-Synchronisation
 ======
 
-> [⇧ **Nach oben**](https://github.com/TacoNaco47/M300_Vagrant_Box#m300---vagrant-box)
 
 Interessant zu sehen war, dass wir die HTML-Dateien für die Webseite lokal in unserem Projektordner abgelegt haben. Doch wie konnte VM auf diese Daten zugreifen? Lösung: **Ordner-Synchronisation**
 
@@ -185,37 +177,13 @@ Im `bootstrap.sh` Script haben wir zudem auf VM-Ebene eine Umleitung zu `/vagran
 Auf `/vagrant` kann man direkt zugreifen, sobald man sich per SSH verbindet. Ausgangsverzeichnis ist dabei `/home/vagrant` und mit `cd /vagrant` wechselt man anschliessend in das Shared-Folder Verzeichnis.
 
 
-![](https://github.com/TacoNaco47/M300_Vagrant_Box/blob/master/images/Forward_36x36.png?raw=true "Port-Weiterleitunng") 06 - Port-Weiterleitunng
+06 - Port-Weiterleitunng
 ======
 
-> [⇧ **Nach oben**](https://github.com/TacoNaco47/M300_Vagrant_Box#m300---vagrant-box)
 
 Das letzte Geheminis ist die Portweiterleitung. 
 
 Als wir die Webseite mit http://127.0.0.1:4567 aufgerufen haben, kam ein anderer Port zum Einsatz, als der Standard-Port 80 für HTTP-Webseiten. 
 Der Grund dafür liegt im Vagrantfile. Dort haben wir beim Apache-Webserver die Zeile `web.vm.network :forwarded_port, guest: 80, host: 4567` eingetragen. Die Zeile richtet eine sogenannte Port-Weiterleitung ein. Das heisst, alle Anfragen auf Port 4567 an die VM werden auf den Port 80 umgeleitet. Dies ist vor allem dann nützlich, wenn Sicherheitsaspekte bei der Entwicklung von Web-Applikationen berücksichtigt werden müssen.
 
-Alles klar soweit? Ich hoffe schon!
-
-
-![](https://github.com/TacoNaco47/M300_Vagrant_Box/blob/master/images/Discover_36x36.png?raw=true "Quellenverzeichnis") 07 - Quellenverzeichnis
-======
-
-> [⇧ **Nach oben**](https://github.com/TacoNaco47/M300_Vagrant_Box#m300---vagrant-box)
-
-In diesem Abschnitt möchte ich zur Hilfe verwendete Quellen transparent offen legen.
-<br>
-<br>
-Für das Setup der VMs habe ich mich nach der offiziellen Dokumentation von den Vagrant-Entwicklern orientiert:<br>
-https://www.vagrantup.com/intro/getting-started/index.html
-
-Bei der Erstellung einer Multi-Maschinen-Umgebung, nahm ich zudem folgende Dokumentation zur Hilfe:<br>
-https://www.vagrantup.com/docs/multi-machine/ 
-
-Als ich mit der HTML-Anzeige Probleme hatte, half mir folgender Forum-Post weiter:<br>
-https://stackoverflow.com/questions/30960478/trouble-with-vagrant-404-not-found
-
-Weitere Unterstützung durch:<br>
-* https://stackoverflow.com/questions/5127838/where-does-php-store-the-error-log-php5-apache-fastcgi-cpanel
-* https://stackoverflow.com/questions/2852748/pdoexception-could-not-find-driver
   
