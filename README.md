@@ -14,6 +14,8 @@ erarbeitet und zeigt alle Schritte auf, die es zur Einrichtung einer vollständi
 * Vagrant
 * Text-Editor (z.B. Visual Studio Code)
 * Github Account
+
+
 ## Inhaltsverzeichnis
 * K1
 * K2
@@ -67,27 +69,80 @@ Für das weitere Vorgehen wird eine System-Abbild-Datei benötigt. Dazu laden wi
 10. Den Installationsanweisungen der OS-Installation folgen und anschliessend zu Abschnitt "VM einrichten" gehen
 
 
-Für die Erstellung einer Multi-Maschinen-Umgebung mit Vagrant muss zuallererst das sogenannte Vagrantfile erstellt werden. Dies ist eine Datei, welche alle notwendigen Konfigurationselemente beherrbergt, die zur Erstellung der einzelnen VMs benötigt werden.
+## Vagrant
+Vagrant sollte uns zeigen, dass das Bereitstellen virtueller Systeme in der konventionellen Art lange dauert und umständlich sein kann.
+Abhilfe bietet hier Vagrant. Vagrant ist eine freie Ruby-Anwendung zur Erstellung und Verwaltung virtueller Maschinen und ermöglicht einfache Softwareverteilung.
 
-Die Datei erfüllt folgende Zwecke:
-1. Das Vagrantfile legt fest, wo sich das Projekt befindet. Dieses "Root-Directory" ist für viele Konfigurationseinstellungen unabdingbar.
-2. Mit dem Vagrantfile werden Anzahl Maschinen und Ressourcen (inkl. Software) definiert, die für den Betrieb benötigt werden.
+Nachfolgend sind einzelne Schritte zur Einrichtung von Vagrant dokumentiert:
 
-## Vagrantfile erstellen
-1. Terminal starten
-2. Projektordner erstellen, wo das Projekt liegen soll:
+### Software herunteladen & installieren
+***
+1. Die Anwendung in der Version 2.1.4 kann auf der [offiziellen Webseite](https://www.vagrantup.com/ "vagrantup.com") heruntergeladen werden.
+2. Die Installation erfolgt, wie alle anderen Anwendungen, GUI-basiert, jedoch standard (ohne speziellen Anpassungen). Daher wird an dieser Stelle ebenfalls auf eine Erklärung verzichtet.
+3. Sobald der Vorgang abgeschlossen wurde, kann mit dem Erstellen einer VM fortgefahren werden. 
+
+
+### Virtuelle Maschine erstellen
+***
+1. Terminal öffnen
+2. In gewünschtem Verzeichnis einen neuen Ordner für die VM anlegen:
     ```Shell
-      $ mkdir MeinVagrantProjekt
-      $ cd MeinVagrantProjekt
-    ```
-3. Vagrantfile erstellen:
+      $ cd Wohin\auch\immer
+      $ mkdir MeineVagrantVM
+      $ cd MeineVagrantVM
+    ``` 
+3. Vagrantfile erzeugen, VM erstellen und entsprechend starten:
     ```Shell
-      $  vagrant init
-    ```
+      $ vagrant init ubuntu/xenial64        #Vagrantfile erzeugen
+      $ vagrant up --provider virtualbox    #Virtuelle Maschine erstellen & starten
+    ``` 
+4. Die VM ist nun in Betrieb (erscheint auch in der Übersicht innerhalb von VirtualBox) und kann via SSH-Zugriff bedient werden:
+    ```Shell
+      $ cd Pfad\zu\meiner\Vagrant-VM      #Zum Verzeichnis der VM wechseln
+      $ vagrant ssh                       #SSH-Verbindung zur VM aufbauen
 
-Mit dem letzten Befehl wird das Vagrantfile im aktuellen Verzeichnis `MeinVagrantProjekt` erstellt. 
+      #Anschliessend können ganz normale Bash-Befehle abgesetzt werden:
 
-02 - Box hinzufügen
+      $ ls -l /bin  #Bin-Verzeichnis anzeigen
+      $ df -h       #Freier Festplattenspeicher
+      $ free -m     #Freier Arbeitsspeicher
+    ``` 
+5. VM über VirtualBox-GUI ausschalten
+
+Schlussfolgerung: Eine VM lässt sich mit Vagrant eindeutig schneller und unkomplizierter erstellen!
+
+
+### Virtuelle Maschine erstellen (mit Vagrant-Box auf Netzwerkshare)
+***
+1. Terminal öffnen
+2. In gewünschtem Verzeichnis einen neuen Ordner für die VM anlegen:
+    ```Shell
+      $ cd Wohin\auch\immer
+      $ mkdir MeineVagrantVM
+      $ cd MeineVagrantVM
+    ``` 
+3. Vagrantfile erzeugen, VM erstellen und entsprechend starten:
+    ```Shell
+      $ vagrant box add http://[HOST]/vagrant/ubuntu/xenial64.box --name ubuntu/xenial64  #Vagrant-Box vom Netzwerkshare hinzufügen
+      $ vagrant init ubuntu/xenial64                                                      #Vagrantfile erzeugen
+      $ vagrant up --provider virtualbox                                                  #Virtuelle Maschine erstellen & starten
+    ``` 
+4. Die VM ist nun in Betrieb (erscheint auch in der Übersicht innerhalb von VirtualBox) und kann via SSH-Zugriff bedient werden:
+    ```Shell
+      $ cd Pfad\zu\meiner\Vagrant-VM      #Zum Verzeichnis der VM wechseln
+      $ vagrant ssh                       #SSH-Verbindung zur VM aufbauen
+
+      #Anschliessend können ganz normale Bash-Befehle abgesetzt werden:
+
+      $ ls -l /bin  #Bin-Verzeichnis anzeigen
+      $ df -h       #Freier Festplattenspeicher
+      $ free -m     #Freier Arbeitsspeicher
+    ``` 
+5. VM über VirtualBox-GUI ausschalten
+
+Schlussfolgerung: Keine erheblichen Unterschiede zum ersten Teil (ohne Share) und daher auch nicht wirklich kompliziert.
+
+K2
 ======
 
 Als nächstes benötigen wir eine Vagrant Box, die uns eine Art "System-Image" (Abbild) liefert, auf welchem wir unsere eigene Konfiguration mit den Services aufbauen können.
