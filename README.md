@@ -285,7 +285,6 @@ K2
 =====
 
 ## Github oder Gitlab-Account ist erstellt
-***
 
 
 Ein GitHub-Account konnte ich problemlos erstellen.
@@ -293,7 +292,6 @@ Ein GitHub-Account konnte ich problemlos erstellen.
 
 
 ## Git-Client wurde verwendet
-***
 Mein Git-Client ist aktiv und mein repo wurde auch geklont.
 
 ![Capture](C:\Users\urale\OneDrive - TBZ\Dokumente Modul 300\Capture.PNG)
@@ -303,40 +301,24 @@ Mein Git-Client ist aktiv und mein repo wurde auch geklont.
 
 
 ## Dokumentation ist als Markdown vorhanden, Editor ausgewählt und eingerichtet, strukturiert
-***
+
 Mein .md wurde mit Typora geschrieben, eingerichtet und strukturiert.
 
 
 
 ## Persönlicher Wissenstand im Bezug auf die wichtigsten Themen sind dokumentiert (Linux, VM, Vagrant, Git, .md, Sicherheit)
-***
+
 - Linux: 
 
-  Da ich Ubuntu Server 18.04 für die LB01 verwende, heisst das auch, dass ich Erfahrungen in Ubuntu (oder generell Linux) habe.
+  Ich habe im Geschäft schon mit Linux zu tun gehabt. Daher hatte ich vor dem Projekt grundlegendes Basiswissen über Linux
 
 - VM: 
 
-  Zuhause verwende ich die VMware Workstation (betrieben mit Kali Linux). Bezüglich VMs, habe ich genügend Erfahrung für die Realisierung der Lernbeurteilungen dieses Modules.
+  In ÜKs und im Geschäft hatte ich sehr viel zu tun mit VMs, deswegen kenne ich mich mit VMs einigermassen gut aus.
 
 - Vagrant: 
 
   Vagrant kannte ich vorher nicht. Hier sind die wichtigsten Befehle (für den bash Terminal) aufgelistet:
-
-```bash
-$ vagrant ssh. #SSH into virtual machine.
-$ vagrant up. #Start virtual machine.
-$ vagrant share. #Share your virtual machine to the world via a temporary and unique url.
-$ vagrant halt. #Halt virtual machine.
-$ vagrant destroy. #Destroy your virtual machine. ...
-$ vagrant provision. #Reconfigure the virtual machine after a source code change.
-$ vagrant reload. #Reload the virtual machine. Useful when you need to change network or synced folder settings.
-
-#Genauere und mehrere Infos, findet man unter der offizielen Dokumentation: https://www.vagrantup.com/docs/cli/
-```
-
-- Git, .md, Sicherheit: 
-
-  Da habe ich bei den vorherigen Modulen schon Erfahrungen sammeln können und kann diese ebenfalls für dieses Modul ausnutzen.
 
 
 
