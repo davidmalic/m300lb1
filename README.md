@@ -603,25 +603,16 @@ Der erstes Schritt ist ebenfalls erneut die Paketverzeichnis zu aktualisieren.
 ```
 sudo apt-get update
 ```
-Im nächsten Schritt wird eine Gruppe mit inklusvie Benutzer mit Passwort erstellt. Es sieht so aus: 
-```
-#Gruppe Myadmin erstellen
-sudo groupadd myadmin
-#User erstellen
-sudo useradd admin -g myadmin -m -s /bin/bash
-sudo useradd test -g myadmin -m -s /bin/bash
-#Password festlegen
-sudo chpasswd <<<admin:admin
-sudo chpasswd <<<test:test
-```
-Bei nächsten Schritt wird der Apache Server installiert und die Service wird neugestartet. Das Paket lautet: apche2
+
+Bei nächsten Schritt wird der Apache Server installiert und die Service wird neugestartet. Das Paket lautet: apache2
+
 ```
 #Installation Apache2
 sudo apt-get -y install apache2
 #Apache2 Service neustarten
 sudo service apache2 restart
 ```
-Die Tastaturlayout muss man noch auf Deutsch Schweiz anpassen.
+Das Tastaturlayout wird noch auf Deutsch Schweiz angepasst:
 ```
 #Tastaturlayout anpassen
 sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="ch"/g' /etc/default/locale
