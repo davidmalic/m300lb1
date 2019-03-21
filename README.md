@@ -75,4 +75,7 @@ Ausserdem wurde es dem SSH-Agent hinzugefügt
 ![add key](https://user-images.githubusercontent.com/47855918/54729765-a277bb00-4b85-11e9-958d-9c5b299893ea.png)
 Der SSH-Key wurde in Github implementiert.
 
+## Repository klonen
+![rep klonen](https://user-images.githubusercontent.com/47855918/54730216-f4b9db80-4b87-11e9-95c5-fa678e3d3a67.png)
+Die Repository wird von Github auf den Client geklont.
 
