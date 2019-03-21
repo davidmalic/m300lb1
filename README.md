@@ -67,5 +67,5 @@ Der letzte Befehl lädt die Box herunter und fügt sie Vagrant hinzu. Sobald wir
 ======
 
 <p><img src="https://onedrive.live.com/view.aspx?resid=492F7CD056F0D2BB%216068&id=documents&wd=target%28m300.one%7CB3045686-7C3C-4C06-981F-9802D0AC178B%2Fad%7CB4C078A5-06F6-421A-8536-F312CA26A2FF%2F%29
-onenote:https://d.docs.live.net/492f7cd056f0d2bb/Dokumente/Notizbuch%20von%20David/m300.one#ad&section-id={B3045686-7C3C-4C06-981F-9802D0AC178B}&page-id={B4C078A5-06F6-421A-8536-F312CA26A2FF}&object-id={2C215ADB-3EB0-4F15-9AB9-D69EC621A5A3}&13"
+onenote:https://d.docs.live.net/492f7cd056f0d2bb/Dokumente/Notizbuch%20von%20David/m300.one#ad&section-id={B3045686-7C3C-4C06-981F-9802D0AC178B}&page-id={B4C078A5-06F6-421A-8536-F312CA26A2FF}&object-id={2C215ADB-3EB0-4F15-9AB9-D69EC621A5A3}&13" alt="SSH"></p>
   
