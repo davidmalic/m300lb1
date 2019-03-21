@@ -66,5 +66,5 @@ Der letzte Befehl lädt die Box herunter und fügt sie Vagrant hinzu. Sobald wir
 03 - SSH-Key
 ======
 
-<p><img src="C:\Users\david\Desktop\test.PNG" alt="SSH"></p>
-  
+![test](https://user-images.githubusercontent.com/47855918/54729498-30eb3d00-4b84-11e9-8d45-e7b02109c7ca.PNG)
+
