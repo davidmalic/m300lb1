@@ -16,6 +16,11 @@ erarbeitet und zeigt alle Schritte auf, die es braucht um die LB1-Kriterien zu e
 
 ## Inhaltsverzeichnis
 * K1
+  * VirtualBox
+  * Vagrant
+  * Visualstudio-Code
+  * Git-Client
+  * SSH-Key für Client erstellt
 * K2
 * K3
 * K4
