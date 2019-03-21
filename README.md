@@ -412,6 +412,23 @@ sudo ufw --force enable
 Nun ist die DHCP-Part abgeschlossen. Man kann jetzt Clients VM erstellen und mit dem DHCP-Server innerhalb IP-Range IP-Adresse bekommen.
 
 ## Reverse-Proxy eingerichtet
+Im folgenden Schritt wird der Reverse-Proxy eingerichtet.
+
+```
+sudo ufw allow from 10.0.2.2 to any port 22
+sudo ufw allow 80/tcp
+    sudo ufw --force enable
+    sudo apt-get install libapache2-mod-proxy-html -y
+    sudo apt-get install libxml2-dev -y
+    a2enmod proxy
+    a2enmod proxy_html
+    a2enmod proxy_http
+    sed -i '$aServerName localhost' /etc/apache2/apache2.conf
+    service apache2 restart
+    cd /etc/apache2/sites-enabled
+    wget https://pastebin.com/raw/GbjFC2ii
+    cp GbjFC2ii 001-reverseproxy.conf
+    ```
 
 ## Benutzer- und Rechtevergabe ist eingerichtet
 Im nächsten Schritt wird eine Gruppe, inklusive Benutzer mit Passwort erstellt. Dies geht folgendermassen: 
