@@ -67,5 +67,7 @@ Der letzte Befehl lädt die Box herunter und fügt sie Vagrant hinzu. Sobald wir
 ======
 
 ![ssh key](https://user-images.githubusercontent.com/47855918/54729693-3ac17000-4b85-11e9-95b6-e2673ee3df48.png)
-e7b02109c7ca.PNG)
+
+SSH-Key wurde erstellt mit dem git-bash. Zusätzlich wurde auch ein Passwort hinterlegt. 
+Ausserdem wurde es dem SSH-Agent hinzugefügt
 
