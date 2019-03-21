@@ -414,13 +414,13 @@ Die wichtigsten Befehle:
 ```
 +---------------------------------------------------------------+
 ! Notebook - Schulnetz 10.x.x.x und Privates Netz 192.168.6.1   !                 
-! Port: 8080 (192.158.6.101:80)                                 !	
+!                                  !	
 !                                                               !	
 !    +--------------------+          +---------------------+    !
-!    ! Appache Server     !          ! DHCP Server         !    !       
+!    ! Apache Server      !          ! DHCP Server         !    !       
 !    ! Host: apache       !          ! Host: dhcp          !    !
-!    ! IP: 192.168.6.7    ! <------> ! IP: 192.168.6.5     !    !
-!    ! Port: 80           !          !                     !    !
+!    ! IP: 192.168.6.7    ! 	     ! IP: 192.168.6.5     !    !
+!    ! Port: 80           !          ! Port: -             !    !
 !    ! Nat: 8080          !          !                     !    !
 !    +--------------------+          +---------------------+    !
 !                                                               !
@@ -437,6 +437,14 @@ Die wichtigsten Befehle:
 !	                                                        !
 +---------------------------------------------------------------
 ```
+
+## Funktionsweise Testen
+
+Um zum überprüfen ob der Webserver läuft wird: http://localhost:8080/ im Browser eingegeben und dann sollte der Apache Server auftauchen. 
+
+Um die Database zu testen, gibt man im Browser die folgende URL ein: http://localhost:8080/adminer.php.
+
+Um die Funktionsweise vom DHCP-Server zu testen muss man eine vm erstellen mit der gleichen Netzwerkkarte wie der DHCP-Server und dann die Einstellungen ändern unter DHCP. Danach erhählt diese VM eine IP vom erstellten DHCP-Server. 
 
 ## Andere, vorgefertige vm auf eigenem Notebook aufgesetzt
 So habe ich mein Vagrant konfiguriert:
@@ -827,6 +835,6 @@ sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="ch"/g' /etc/default/locale
 Ich habe gelernt wie man mit einem Vagrant File eine VM erstellt nach seinen Bedürfnissen. Ausserdem habe ich mir sehr viel Fachwissen bezüglich Git, Markdown , Linux und Virtualisierung angeignet. Am Anfang hatte ich nur Basis Wissen in den meisten Bereichen. Durch dieses Modul konnte ich mein Wissen sehr vertiefen. 
 
 ## Reflexion
-Ich hatte noch nie etwas von Vagrant gehört. Jedoch als es Herr Kälin uns erklärte, fand ich grosses Interesse. Eine VM zu erstellen mit einem Text-File nach seinen Bedürfnissen? Das ist sehr praktisch und zeitsparend. Was mir besonders gefiel war das Erarbeiten der Dokumentation, da ich bis anhin den Funktionsumfang von GitHub in Kombination mit Markdown nicht kannte. Da für mich alles sehr neu war, musste ich mich in einer ersten Phase erst einmal in die einzelnen Bereiche einarbeiten und Schritt für Schritt die Anweisungen befolgen. Grösstenteils hatte ich dabei keine Mühe und ich konnte bereits in geraumer Zeit einen Grossteil der Aufgaben abschliessen. Am Schluss hatte ich ein bisschen Zeitdruck konnte jedoch alles noch gut erledigen. 
+Ich hatte noch nie etwas von Vagrant gehört. Deswegen hatte ich am Anfang noch bisschen Mühe. Jedoch als es Herr Kälin uns erklärte, fand ich grosses Interesse. Eine VM zu erstellen mit einem Text-File nach seinen Bedürfnissen? Das ist sehr praktisch und zeitsparend. Was mir besonders gefiel war das Erarbeiten der Dokumentation, da ich bis anhin den Funktionsumfang von GitHub in Kombination mit Markdown nicht kannte. Da für mich alles sehr neu war, musste ich mich in einer ersten Phase erst einmal in die einzelnen Bereiche einarbeiten und Schritt für Schritt die Anweisungen befolgen. Grösstenteils hatte ich dabei keine Mühe und ich konnte bereits in geraumer Zeit einen Grossteil der Aufgaben abschliessen. Am Schluss hatte ich ein bisschen Zeitdruck konnte jedoch alles noch gut erledigen. 
 
 Ich konnte vieles lernen und bedanke mich beim Herrn Kälin für seine Unterstützung. In Zukunft werde ich Github auf jeden Fall für nachfolgende Projekte brauchen. 
