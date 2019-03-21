@@ -344,7 +344,7 @@ Die ganze Dokumentation habe ich im Github Code Browser geschrieben.
 K3
 =====
 
-## Bestehende vm aus Vagrant-Cloud einrichten. 
+## Bestehende vm aus Vagrant-Cloud einrichten
 
 ```# -*- mode: ruby -*-
 # vi: set ft=ruby :
@@ -397,6 +397,9 @@ SHELL
 	end  
  end
 ```
+
+## Kennt die Vagrant-Befehle
+
 
 K4
 =====
