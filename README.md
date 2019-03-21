@@ -231,17 +231,114 @@ Ausserdem wurde es dem SSH-Agent hinzugefügt
 7.  Der Schlüssel (SSH-Key) sollte nun in der übergeordneten Liste auftauchen
 
 
-
-
-
 ### SSH-Key in Github hinzufügen
+***
 ![add key](https://user-images.githubusercontent.com/47855918/54729765-a277bb00-4b85-11e9-958d-9c5b299893ea.png)
 Der SSH-Key wurde in Github implementiert.
 
 
-## Repository klonen
+### Repository klonen
+***
 ![rep klonen](https://user-images.githubusercontent.com/47855918/54730216-f4b9db80-4b87-11e9-95c5-fa678e3d3a67.png)
 Die Repository wird von Github auf den Client geklont.
+
+### Repository hochladen (Push)
+***
+1.  Terminal öffnen (nachdem Teile bzw. Dateien des lokalen Repositorys geändert wurden)
+2.  In das entsprechende Verzeichnis des Repository gehen: 
+    ```Shell
+      $ cd Pfad\zu\meinem\Repository  
+    ```  
+3.  Dateien dem Upload hinzufügen:
+    ```Shell
+      $ git add -a.
+    ``` 
+4.  Den Upload commiten:
+    ```Shell
+      $ git commit -m "Mein Kommentar"
+    ``` 
+5.  Schliesslich den Upload pushen:
+    ```Shell
+      $ git push
+    ```
+6.  Nun sollte der Master-Branch des Repositorys ebenfalls aktualisiert sein
+
+### Übersicht "How to Push"
+***
+
+Dieser Abschnitt zeigt die Handhabung von Git-Befehlen auf. Mit den nachfolgenden Kommandos pusht man das (geänderte) Repository zu seinem GitHub-Repository.
+
+Wichtig: Die Befehle müssen innerhalb des lokalen Repositorys ausgeführt werden!
+
+```Shell 
+$  cd Pfad\zu\meinem\Repository    # Zum lokalen GitHub-Repository wechseln
+
+$  git status                      # Geänderte Datei(en) werden rot aufgelistet
+$  git add -a                      # Fügt alle Dateien zum "Upload" hinzu
+$  git status                      # Der Status ist nun grün > Dateien sind Upload-bereit (Optional) 
+$  git commit -m "Mein Kommentar"  # Upload wird "commited" > Kommentar zu Dokumentationszwecken ist dafür notwendig
+$  git status                      # Dateien werden nun als "zum Pushen bereit" angezeigt
+$  git push                        #Upload bzw. Push wird durchgeführt
+```
+
+K2
+=====
+
+## Github oder Gitlab-Account ist erstellt
+***
+
+
+Ein GitHub-Account konnte ich problemlos erstellen.
+
+
+
+## Git-Client wurde verwendet
+***
+Mein Git-Client ist aktiv und mein repo wurde auch geklont.
+
+![Capture](C:\Users\urale\OneDrive - TBZ\Dokumente Modul 300\Capture.PNG)
+
+<a href="https://imgur.com/dFzVv9T"><img src="https://i.imgur.com/dFzVv9T.png" title="source: imgur.com" /></a>
+
+
+
+## Dokumentation ist als Markdown vorhanden, Editor ausgewählt und eingerichtet, strukturiert
+***
+Mein .md wurde mit Typora geschrieben, eingerichtet und strukturiert.
+
+
+
+## Persönlicher Wissenstand im Bezug auf die wichtigsten Themen sind dokumentiert (Linux, VM, Vagrant, Git, .md, Sicherheit)
+***
+- Linux: 
+
+  Da ich Ubuntu Server 18.04 für die LB01 verwende, heisst das auch, dass ich Erfahrungen in Ubuntu (oder generell Linux) habe.
+
+- VM: 
+
+  Zuhause verwende ich die VMware Workstation (betrieben mit Kali Linux). Bezüglich VMs, habe ich genügend Erfahrung für die Realisierung der Lernbeurteilungen dieses Modules.
+
+- Vagrant: 
+
+  Vagrant kannte ich vorher nicht. Hier sind die wichtigsten Befehle (für den bash Terminal) aufgelistet:
+
+```bash
+$ vagrant ssh. #SSH into virtual machine.
+$ vagrant up. #Start virtual machine.
+$ vagrant share. #Share your virtual machine to the world via a temporary and unique url.
+$ vagrant halt. #Halt virtual machine.
+$ vagrant destroy. #Destroy your virtual machine. ...
+$ vagrant provision. #Reconfigure the virtual machine after a source code change.
+$ vagrant reload. #Reload the virtual machine. Useful when you need to change network or synced folder settings.
+
+#Genauere und mehrere Infos, findet man unter der offizielen Dokumentation: https://www.vagrantup.com/docs/cli/
+```
+
+- Git, .md, Sicherheit: 
+
+  Da habe ich bei den vorherigen Modulen schon Erfahrungen sammeln können und kann diese ebenfalls für dieses Modul ausnutzen.
+
+
 
 K4
 =====
