@@ -17,11 +17,6 @@ erarbeitet und zeigt alle Schritte auf, die es braucht um die LB1-Kriterien zu e
 
 ## Inhaltsverzeichnis
 * K1
-** Virtual Box
-** Vagrant
-** Visual Studio Code
-** Git-Client
-** SSH-Key für Client erstellt
 * K2
 * K3
 * K4
@@ -33,6 +28,7 @@ K1
 ======
 
 ## Virtualbox
+***
 Nun widmen wir uns der Virtualisierung von Computersystemen. Für den Betrieb von solchen Maschinen bzw. Computern stehen zahlreiche Virtualisierungsanwendungen zur Verfügung. Eine davon ist VirtualBox. In diesem Kapitel richten wir eine einfache VM (Virtuelle Maschine) mit VirtualBox ein. Also ganz traditionell und wie sich im späteren Verlauf zeigt, auch eine sehr aufwendige Arbeit.
 
 Folgende Arbeiten müssen gemacht werden:
@@ -76,6 +72,7 @@ Für das weitere Vorgehen wird eine System-Abbild-Datei benötigt. Dazu laden wi
 
 
 ## Vagrant
+***
 Vagrant sollte uns zeigen, dass das Bereitstellen virtueller Systeme in der konventionellen Art lange dauert und umständlich sein kann.
 Abhilfe bietet hier Vagrant. Vagrant ist eine freie Ruby-Anwendung zur Erstellung und Verwaltung virtueller Maschinen und ermöglicht einfache Softwareverteilung.
 
@@ -149,26 +146,25 @@ Schlussfolgerung: Eine VM lässt sich mit Vagrant eindeutig schneller und unkomp
 Schlussfolgerung: Keine erheblichen Unterschiede zum ersten Teil (ohne Share) und daher auch nicht wirklich kompliziert.
 
 ## Visual Studio Code
-
+***
 Bis hierhin haben wir soweit alles aufgesetzt und installiert. Nun möchten wir für effizienteres Arbeiten eine "Entwicklungsumgebung" aufbauen, die es uns ermöglicht, alle lokalen Repositories an einem Ort zu verwalten und die dazugehörigen Dateien zu bearbeiten. Die Lösung hierzu ist: Visual Studio Code 
 Dieser freie Quelltext-Editor von Microsoft, ermöglicht uns, unsere Workflows besser zu gestalten und damit die Arbeit um einiges leichter zu machen.
 
-Für die Einrichtung muss man sich nach den nachfolgenden Anweisungen orientieren:
+Ich habe jedoch nicht mit Visual Studio Code gearbeitet. Ich habe es direkt im Github Browser Code bearbeitet.
 
- 
-
-### Repository hinzufügen & pushen
+### Software herunteladen & installieren
 ***
-1. Visual Studio Code öffnen
-2. Änderungen an entsprechenden Dateien des lokalen Repositorys vornehmen
-3. In der linken Leiste das Symbol mit einer "1" aufrufen
-4. Unter dem Abschnitt **Changes** die betroffenen Files bezüglich ihres Changes "stagen" (**Stage Changes**)
-5. Nachricht hinterlegen (**Message**) und Haken (**Commit**) setzen
-6. Bei den 3 Punkten (...) die Funktion **Push** aufrufen
-7. Warten, bis Dateien vollständig gepusht wurden
+1. Unter [dieser Webseite](https://code.visualstudio.com/"visualstudio.com") lässt sich der Installer (Version 1.26.1) herunterladen.
+2. Auf "Download for Mac" klicken und warten, bis das Fenster zum Herunterladen erscheint. Anschliesend den Download des Installers starten
+3. Die Installation erfolgt auch hier GUI-basiert. Wiederum aber standard (ohne speziellen Anpassungen), sodass an dieser Stelle auf eine Erklärung ebenfalls verzichtet wird .
+4. Sobald der Vorgang abgeschlossen wurde, kann mit dem Herunterladen der ISO-Datei und der VM-Erstellung fortgefahren werden.
+
+
 
 ## Git-Client
+***
 ### Account erstellen
+***
 Als erster Schritt muss ein GitHub-Account eingerichtet werden. Dieser dient uns später als "Cloud-Speicher" unserer Dokumentation und weiteren Dateien.
 
 Folgende Arbeiten müssen gemacht werden:
@@ -192,6 +188,11 @@ Folgende Arbeiten müssen gemacht werden:
 
 ### SSH-Key erstellen (lokal)
 ***
+
+![ssh key](https://user-images.githubusercontent.com/47855918/54729693-3ac17000-4b85-11e9-95b6-e2673ee3df48.png)
+SSH-Key wurde erstellt mit dem git-bash. Zusätzlich wurde auch ein Passwort hinterlegt. 
+Ausserdem wurde es dem SSH-Agent hinzugefügt
+
 1.  Terminal öffnen
 2.  Folgenden Befehl mit der Account-E-Mail von GitHub einfügen:
     ```Shell
@@ -214,6 +215,8 @@ Folgende Arbeiten müssen gemacht werden:
 
 
 
+
+
 ### SSH-Key hinzufügen
 ***
 1.  Anmelden unter www.github.com
@@ -226,13 +229,9 @@ Folgende Arbeiten müssen gemacht werden:
 
 
 
-## SSH-Key erstellen mit Password und hinzufügen des SSH-Agents
-![ssh key](https://user-images.githubusercontent.com/47855918/54729693-3ac17000-4b85-11e9-95b6-e2673ee3df48.png)
-SSH-Key wurde erstellt mit dem git-bash. Zusätzlich wurde auch ein Passwort hinterlegt. 
-Ausserdem wurde es dem SSH-Agent hinzugefügt
 
 
-## SSH-Key in Github hinzufügen
+### SSH-Key in Github hinzufügen
 ![add key](https://user-images.githubusercontent.com/47855918/54729765-a277bb00-4b85-11e9-958d-9c5b299893ea.png)
 Der SSH-Key wurde in Github implementiert.
 
