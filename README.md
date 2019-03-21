@@ -512,13 +512,13 @@ Nach der Installation kann ich die FTP-Server konfigurieren. Bei meinem Fall sie
 ```
 sudo groupadd ftpgroup
 sudo useradd -g ftpgroup -d /dev/null -s /etc ftpuser
-sudo pure-pw useradd samjoy -u ftpuser -g ftpgroup -d /home/pubftp/samjoy -N 10
+sudo pure-pw useradd david -u ftpuser -g ftpgroup -d /home/pubftp/david -N 10
 ```
 Nach der Änderung wird der FTP Service neu gestartet.
 ```
 #FTP Server neustarten
 sudo service pure-ftpd-common pure-ftpd restart
-#sudo /home/pubftp/samjoy restart
+#sudo /home/pubftp/david restart
 ```
 Die Tastaturlayout muss man noch auf Deutsch Schweiz anpassen.
 ```
